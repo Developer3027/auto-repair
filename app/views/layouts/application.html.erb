@@ -13,6 +13,12 @@
 
   <body>
     <main class="container mx-auto mt-28 px-5 flex">
+      <% if notice %>
+        <%= render "layouts/msg_partials/notice" %>
+      <% end %>
+      <% if alert %>
+        <%= render "layouts/msg_partials/alert" %>
+      <% end %>
       <%= yield %>
     </main>
   </body>

@@ -1,0 +1,25 @@
+<div>
+  <h1 class="font-bold text-4xl">Pages#home</h1>
+  <p>Find me in app/views/pages/home.html.erb</p>
+
+  <%= link_to("create service", new_service_path, class: "text-blue-400") %>
+
+  <% if current_user %>
+    <p class="text-green-500">
+      Hello <%= current_user.email %><br>
+      Your current role is: [<%= current_user.role %>]
+    </p>
+    <p>
+      <% if current_user.admin? %>
+        There are <%= User.count %> users listed.
+      <% end %>
+    </p>
+    <%= link_to "Sign out", destroy_user_session_path, "data-turbo-method": :delete %>
+  <% else %>
+    <div class="flex flex-col">
+      <p class="text-red-500">Log In Please</p>
+      <%= link_to "Sign Up", new_user_registration_path, class: "text-blue-400" %>
+      <%= link_to "Login", new_user_session_path, class: "text-blue-400" %>
+    </div>
+  <% end %>
+</div>
