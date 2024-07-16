@@ -13,13 +13,17 @@ User.destroy_all
 p "Confirmed deletes: #{User.count} User records are left."
 
 # Create a generic initial with admin and regular user
+User.create!(email: "ar.user@example.com",
+            password: "password",
+            password_confirmation: "password")
+User.create!(email: "ar.tech@example.com",
+            password: "password",
+            password_confirmation: "password",
+            role: User.roles[:tech])
 User.create!(email: "ar.admin@example.com",
             password: "password",
             password_confirmation: "password",
             role: User.roles[:admin])
-User.create!(email: "ar.user@example.com",
-            password: "password",
-            password_confirmation: "password")
 p "Created #{User.count} users"
 
 # Delete services
@@ -28,6 +32,8 @@ p "Confirmed deletes: #{Service.count} Service records are left."
 
 # Create services
 Service.create!(name: "Own Oil", description: "Bring your own oil!", price: 49.99)
-Service.create!(name: "Conventional Oil Change", description: "Conventional Oil Change", price: 49.99)
-Service.create!(name: "High Mileage Oil Change", description: "High Mileage Oil Change", price: 79.99)
+Service.create!(name: "Conventional Oil Change", description: "Conventional Oil Change", price: 49.99, quart: 4.99)
+Service.create!(name: "High Mileage Oil Change", description: "High Mileage Oil Change", price: 79.99, quart: 7.99)
+Service.create!(name: "Synethetic Blend Oil Change", description: "Synthetic Blend Oil Change", price: 79.99, quart: 7.99)
+Service.create!(name: "Full Synthetic Oil Change", description: "Full Synthetic Oil Change", price: 99.99, quart: 14.99)
 p "Created #{Service.count} services"

@@ -6,12 +6,14 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+  3.1.4
 
 * System dependencies
-
+  Action Text and images - review [RailsGuide](https://guides.rubyonrails.org/action_text_overview.html)
 * Configuration
 
 * Database creation
+  PostgreSQL
 
 * Database initialization
   My system does not have the local role available for postgres. In the database.yml I set up the default for host: localhost, with the default user name and password for postgres which is postgres / postgres.

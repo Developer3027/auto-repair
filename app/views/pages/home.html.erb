@@ -3,7 +3,7 @@
   <p>Find me in app/views/pages/home.html.erb</p>
 
   <%= link_to("create service", new_service_path, class: "text-blue-400") %>
-
+  <%= link_to("service", services_path, class: "text-blue-400") %>
   <% if current_user %>
     <p class="text-green-500">
       Hello <%= current_user.email %><br>

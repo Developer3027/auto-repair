@@ -71,4 +71,8 @@ group :test do
   gem "selenium-webdriver"
 end
 
+# Devise for authentication
 gem "devise", "~> 4.9"
+
+# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+# gem "rack-cors

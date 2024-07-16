@@ -19,4 +19,10 @@
     <%= service.price %>
   </p>
 
+  <% if service.quart? %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Additional Quarts:</strong>
+      <%= service.quart %>
+    </p>
+  <% end %>
 </div>

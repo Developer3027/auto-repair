@@ -1,5 +1,6 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: %i[ show edit update destroy ]
+  before_action :admin_only, only: %i[ new edit update destroy ]
 
   # GET /services or /services.json
   def index
@@ -58,6 +59,13 @@ class ServicesController < ApplicationController
   end
 
   private
+    # Check if user is admin
+    def admin_only
+      if !current_user || current_user.role != "admin"
+        redirect_to root_path
+        flash[:notice] = "You are not authorized to perform this action."
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_service
       @service = Service.find(params[:id])
@@ -65,6 +73,6 @@ class ServicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def service_params
-      params.require(:service).permit(:name, :description, :image, :price)
+      params.require(:service).permit(:name, :description, :image, :price, :quart)
     end
 end
