@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'pages/home'
+  get 'oil_change' => "pages#oil_change", as: :oil_change
   resources :services
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

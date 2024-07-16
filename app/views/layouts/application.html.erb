@@ -13,10 +13,10 @@
 
   <body>
     <main class="container mx-auto mt-28 px-5 flex">
-      <% if notice %>
+      <% if notice.present? %>
         <%= render "layouts/msg_partials/notice" %>
       <% end %>
-      <% if alert %>
+      <% if alert.present? %>
         <%= render "layouts/msg_partials/alert" %>
       <% end %>
       <%= yield %>
