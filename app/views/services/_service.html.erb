@@ -12,16 +12,20 @@
           </dt>
           <dd><%= service.price %></dd>
         </div>
+        <% if service.quart.present? %>
         <div>
           <dt class="sr-only">additional quart</dt>
           <dd class="px-1.5 ring-1 ring-sky-400 rounded">+ qrt <span class="text-sky-500">$</span><%= service.quart %></dd>
         </div>
+        <% end %>
         <div>
           <dt class="sr-only">service time</dt>
           <dd class="flex items-center">
+            <% if service.quart.present? %>
             <svg width="2" height="2" fill="currentColor" class="mx-2 text-slate-300" aria-hidden="true">
               <circle cx="1" cy="1" r="1" />
             </svg>
+            <% end %>
             20 minuets
           </dd>
         </div>
