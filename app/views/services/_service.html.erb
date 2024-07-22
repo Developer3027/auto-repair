@@ -2,7 +2,7 @@
   <article class="flex items-start space-x-6 p-6 bg-stone-900 rounded max-w-lg my-2">
     <%= image_tag(service.image, alt: "Oil Bottle Icon",width: "60", height: "88", class: "flex-none rounded-md bg-slate-100") if service.image.attached? %>
     <div class="min-w-0 relative flex-auto text-slate-100">
-      <h2 class="font-semibold truncate pr-2"><%= service.name %></h2>
+      <h2 class="font-semibold truncate pr-2"><%= service.name.sub("Oil Change", "") %></h2>
       <small>up to 5 qrts</small>
       <dl class="mt-2 flex flex-wrap text-sm leading-6 font-medium">
         <div class="absolute top-0 right-0 flex items-center space-x-1">
