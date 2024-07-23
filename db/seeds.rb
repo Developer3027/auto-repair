@@ -30,10 +30,24 @@ p "Created #{User.count} users"
 Service.destroy_all
 p "Confirmed deletes: #{Service.count} Service records are left."
 
+# Delete Categories
+ServiceCategory.destroy_all
+p "Confirmed deletes: #{ServiceCategory.count} Service_Category records are left."
+
+# Create service categories
+ServiceCategory.create!(name: "General", id: 1)
+ServiceCategory.create!(name: "Electrical", id: 2)
+ServiceCategory.create!(name: "Tires", id: 3)
+ServiceCategory.create!(name: "Fluids", id: 4)
+ServiceCategory.create!(name: "Oil Change", id: 5)
+ServiceCategory.create!(name: "Specialty Oils", id: 6)
+ServiceCategory.create!(name: "Diesel Oils", id: 7)
+p "Created #{ServiceCategory.count} service categories"
+
 # Create services
-Service.create!(name: "Own Oil", description: "Bring your own oil!", price: 49.99)
-Service.create!(name: "Conventional Oil Change", description: "Conventional Oil Change", price: 49.99, quart: 4.99)
-Service.create!(name: "High Mileage Oil Change", description: "High Mileage Oil Change", price: 79.99, quart: 7.99)
-Service.create!(name: "Synethetic Blend Oil Change", description: "Synthetic Blend Oil Change", price: 79.99, quart: 7.99)
-Service.create!(name: "Full Synthetic Oil Change", description: "Full Synthetic Oil Change", price: 99.99, quart: 14.99)
+Service.create!(name: "Own Oil", description: "17 Point oil change | review engine bay - battery / belt / hoses / air filter / fluids | Lights | Tires | Brakes | Suspension | Axles | Leaks | Cabin Air Filter", price: 49.99, quart: 4.99, service_category_id: 5)
+Service.create!(name: "Conventional", description: "17 Point oil change | review engine bay - battery / belt / hoses / air filter / fluids | Lights | Tires | Brakes | Suspension | Axles | Leaks | Cabin Air Filter", price: 49.99, quart: 4.99, service_category_id: 5)
+Service.create!(name: "High Mileage", description: "17 Point oil change | review engine bay - battery / belt / hoses / air filter / fluids | Lights | Tires | Brakes | Suspension | Axles | Leaks | Cabin Air Filter", price: 79.99, quart: 7.99, service_category_id: 5)
+Service.create!(name: "Synethetic Blend", description: "17 Point oil change | review engine bay - battery / belt / hoses / air filter / fluids | Lights | Tires | Brakes | Suspension | Axles | Leaks | Cabin Air Filter", price: 79.99, quart: 7.99, service_category_id: 5)
+Service.create!(name: "Full Synthetic", description: "17 Point oil change | review engine bay - battery / belt / hoses / air filter / fluids | Lights | Tires | Brakes | Suspension | Axles | Leaks | Cabin Air Filter", price: 99.99, quart: 14.99, service_category_id: 5)
 p "Created #{Service.count} services"

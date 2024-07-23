@@ -1,10 +1,11 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: %i[ show edit update destroy ]
   before_action :admin_only, only: %i[ new edit update destroy ]
+  before_action :set_service_categories
 
   # GET /services or /services.json
   def index
-    @services = Service.all.sort_by(&:price)
+    @services = Service.all.order(:price)
   end
 
   # GET /services/1 or /services/1.json
@@ -66,6 +67,7 @@ class ServicesController < ApplicationController
         flash[:notice] = "You are not authorized to perform this action."
       end
     end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_service
       @service = Service.find(params[:id])
@@ -73,6 +75,10 @@ class ServicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def service_params
-      params.require(:service).permit(:name, :description, :image, :price, :quart)
+      params.require(:service).permit(:name, :description, :image, :price, :quart, :service_category_id)
+    end
+
+    def set_service_categories
+      @service_categories = ServiceCategory.all.order(:id)
     end
 end

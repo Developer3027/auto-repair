@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :service_categories
   devise_for :users
   get 'pages/home'
   get 'oil_change' => "pages#oil_change", as: :oil_change
