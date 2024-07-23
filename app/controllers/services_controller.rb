@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: %i[ show edit update destroy ]
-  before_action :admin_only, only: %i[ new edit update destroy ]
+  before_action :admin_only, only: %i[ new edit show update destroy ]
   before_action :set_service_categories
 
   # GET /services or /services.json
@@ -27,7 +27,7 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       if @service.save
-        format.html { redirect_to service_url(@service), notice: "Service was successfully created." }
+        format.html { redirect_to services_path, notice: "Service was successfully created." }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class ServicesController < ApplicationController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to service_url(@service), notice: "Service was successfully updated." }
+        format.html { redirect_to services_path, notice: "Service was successfully updated." }
         format.json { render :show, status: :ok, location: @service }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -75,7 +75,7 @@ class ServicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def service_params
-      params.require(:service).permit(:name, :description, :image, :price, :quart, :service_category_id)
+      params.require(:service).permit(:name, :description, :image, :price, :quart, :service_category_id, :upto_quarts)
     end
 
     def set_service_categories

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_22_211202) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_23_220651) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,6 +65,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_22_211202) do
     t.datetime "updated_at", null: false
     t.float "quart"
     t.bigint "service_category_id", null: false
+    t.integer "upto_quarts"
     t.index ["service_category_id"], name: "index_services_on_service_category_id"
   end
 
