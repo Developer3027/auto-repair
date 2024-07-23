@@ -1,5 +1,6 @@
 class ServiceCategoriesController < ApplicationController
   before_action :set_service_category, only: %i[ show edit update destroy ]
+  before_action :admin_only, only: %i[ new edit update destroy ]
 
   # GET /service_categories or /service_categories.json
   def index
@@ -58,6 +59,13 @@ class ServiceCategoriesController < ApplicationController
   end
 
   private
+    # Check if user is admin
+    def admin_only
+      if !current_user || current_user.role != "admin"
+        redirect_to root_path
+        flash[:alert] = "You are not authorized to perform this action."
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_service_category
       @service_category = ServiceCategory.find(params[:id])

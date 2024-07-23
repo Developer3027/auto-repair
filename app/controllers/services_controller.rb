@@ -64,7 +64,7 @@ class ServicesController < ApplicationController
     def admin_only
       if !current_user || current_user.role != "admin"
         redirect_to root_path
-        flash[:notice] = "You are not authorized to perform this action."
+        flash[:alert] = "You are not authorized to perform this action."
       end
     end
 
