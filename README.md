@@ -1,9 +1,38 @@
-# README
+# AutoRepair
 
-This app is built for web and ios, to assist the shop, outside of the POS.
+This app is built for web and ios, to assist the shop, outside of the POS. It is a platform for members to review the garage for maintenance, for techs to communicate on vehicle concerns and get training, and only admins can make adjustments to app.
 
-**User**
-A customer can review 
+**Anyone**
+
+  * View service information, both quick look and details
+  * Get general information on car care.
+
+**Members** (customers)
+
+  * No fee for membership
+  * Members can have a garage that holds many cars.
+  * Members can view services, both quick look and details.
+  * Members can be notified when services are due.
+  * Members can add services to there order.
+  * Members can view service history.
+  * Members can schedule services.
+
+**Tech** (hood and mechanical)
+
+  * Tech can review vehicle.
+  * Tech can make recommendations.
+  * Tech can get notified on work.
+  * Tech can create issues.
+  * Tech can get training for ASE.
+  * Tech can review shop hours.
+
+**Admin**
+
+  * Can manage the app.
+
+************************************************
+
+Off the main nav should be a quick link to ASE study guide and info. Here techs can pick categories and complete tasks, learn, take tests in preparation for ASE exams. Progress can be accessed through profile page.
 
 Things you may want to cover:
 
