@@ -2,8 +2,10 @@
   <article class="flex items-start space-x-6 p-6 bg-stone-900 rounded max-w-lg my-2">
     <%= image_tag(service.image, alt: "Oil Bottle Icon",width: "60", height: "88", class: "flex-none rounded-md bg-slate-100") if service.image.attached? %>
     <div class="min-w-0 relative flex-auto text-slate-100">
-      <h2 class="font-semibold truncate pr-2"><%= service.name.sub("Oil Change", "") %></h2>
-      <small>up to <%= service.upto_quarts %> qrts</small>
+      <h2 class="font-semibold truncate pr-2"><%= service.name %></h2>
+      <% if service.upto_quarts.present? %>
+        <small>up to <%= service.upto_quarts %> qrts</small>
+      <% end %>
       <dl class="mt-2 flex flex-wrap text-sm leading-6 font-medium">
         <div class="absolute top-0 right-0 flex items-center space-x-1">
           <dt class="text-sky-500">
@@ -13,18 +15,18 @@
           <dd><%= service.price %></dd>
         </div>
         <% if service.quart.present? %>
-        <div>
-          <dt class="sr-only">additional quart</dt>
-          <dd class="px-1.5 ring-1 ring-sky-400 rounded">+ qrt <span class="text-sky-500">$</span><%= service.quart %></dd>
-        </div>
+          <div>
+            <dt class="sr-only">additional quart</dt>
+            <dd class="px-1.5 ring-1 ring-sky-400 rounded">+ qrt <span class="text-sky-500">$</span><%= service.quart %></dd>
+          </div>
         <% end %>
         <div>
           <dt class="sr-only">service time</dt>
           <dd class="flex items-center">
             <% if service.quart.present? %>
-            <svg width="2" height="2" fill="currentColor" class="mx-2 text-slate-300" aria-hidden="true">
-              <circle cx="1" cy="1" r="1" />
-            </svg>
+              <svg width="2" height="2" fill="currentColor" class="mx-2 text-slate-300" aria-hidden="true">
+                <circle cx="1" cy="1" r="1" />
+              </svg>
             <% end %>
             20 minuets
           </dd>
