@@ -78,6 +78,8 @@ class ServicesController < ApplicationController
       params.require(:service).permit(:name, :description, :image, :price, :quart, :service_category_id, :upto_quarts)
     end
 
+    # Sets the `@service_categories` instance variable to a collection of all `ServiceCategory` objects,
+    # ordered by their `id` in ascending order.
     def set_service_categories
       @service_categories = ServiceCategory.all.order(:id)
     end

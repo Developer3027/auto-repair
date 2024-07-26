@@ -64,3 +64,33 @@ Things you may want to cover:
 * ...
 
 Note - everything in the vendor/bundle folder will be created on bundle/install on user system. No need for all that to be shipped to github. Added to gitignore.
+
+
+Devise user has client role - scaffold per devise
+  have first_name, last_name, mobile, email, password
+
+Address - model associated to user
+  have line 1, line 2, city, state, zip code, reference user
+
+Vehicle - scaffold
+  have year, make, model, sub model, mileage, vin, plate, reference user
+
+Engine - model associated to vehicle
+  have family, liters, cylinders, camshaft, fuel delivery, reference vehicle
+
+Fluids - scaffold
+  have name, brand, description, type, viscosity, capacity, images
+
+Filters - scaffold
+  have name, brand, description, type, part number, images
+
+Parts - scaffold
+  have name, brand, description, part number, images
+
+Garage - join? user_id, vehicle_id, 
+  user owns one garage
+  user owns many vehicles
+  garage has many vehicles
+  garage has one user
+
+! This database outline is on a test branch ! 
